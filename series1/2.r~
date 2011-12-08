@@ -1,0 +1,21 @@
+## simple linear regression
+x <- seq(1,40,1)
+y <- 2*x+1+5*rnorm(length(x))
+reg <- lm(y~x)
+summary(reg)
+plot(x,y)
+abline(reg)
+
+## nonparametric regression
+fit <- loess(y~x)
+lines(predict(fit),lty=2)
+txt <- c("Regression","Smooth")
+legend("topleft",txt,lty=1:2)
+
+## a) write a sequence of R commands which randomly generates 100
+## times a vector of y-values according to the above model with the
+## given x-values and genereates a vector of slopes of the regression lines.
+
+for i in 1:100
+{
+  
